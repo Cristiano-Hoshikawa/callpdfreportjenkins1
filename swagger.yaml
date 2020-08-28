@@ -24,7 +24,7 @@ paths:
           schema:
             $ref: '#/definitions/APIInvocationError'
         default:
-          description: A sample description of the Response
+          description: O retorno é um binário no formato arquivo PDF
           schema:
             $ref: '#/definitions/streamReference'
       security:
