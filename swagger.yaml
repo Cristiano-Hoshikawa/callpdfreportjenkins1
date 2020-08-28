@@ -14,6 +14,7 @@ paths:
         - application/pdf
       parameters:
         - name: url
+          description: A url base para a montagem do PDF
           in: query
           required: false
           type: string
