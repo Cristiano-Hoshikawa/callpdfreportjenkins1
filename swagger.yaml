@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: v01
   title: CRISTIAN_HOSHIKAW_GENERATE_PDF
-  description: Esta é a API de exemplo padrão para demonstrar em .Net como produzir um PDF e gerar os dados de campos vindos dos mais diversos locais.
+  description: Esta é uma API de exemplo para esta demo
 host: 'oic-digidev-ladsedigdev.integration.ocp.oraclecloud.com:443'
 basePath: /ic/api/integration/v1/flows/rest/CRISTIAN_HOSHIKAW_GENERATE_PDF/1.0
 schemes:
@@ -14,7 +14,6 @@ paths:
         - application/pdf
       parameters:
         - name: url
-          description: A url base para a montagem do PDF
           in: query
           required: false
           type: string
@@ -24,7 +23,7 @@ paths:
           schema:
             $ref: '#/definitions/APIInvocationError'
         default:
-          description: O retorno é um binário no formato arquivo PDF
+          description: A sample description of the Response
           schema:
             $ref: '#/definitions/streamReference'
       security:
