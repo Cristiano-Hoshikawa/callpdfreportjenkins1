@@ -2,6 +2,7 @@ swagger: '2.0'
 info:
   version: v01
   title: CRISTIAN_HOSHIKAW_GENERATE_PDF
+  description: Esta é a descrição da API geradora de PDFs
 host: oic-digidev-ladsedigdev.integration.ocp.oraclecloud.com:443
 basePath: "/ic/api/integration/v1/flows/rest/CRISTIAN_HOSHIKAW_GENERATE_PDF/1.0"
 schemes:
@@ -54,7 +55,7 @@ definitions:
       detail:
         type: string
       errorCode:
-        type: int
+        type: string
       errorDetails:
         type: array
         items:
@@ -69,7 +70,7 @@ definitions:
             errorPath:
               type: string
             errorCode:
-              type: int
+              type: string
           required:
           - errorCode
           - errorPath
