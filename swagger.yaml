@@ -1,99 +1,80 @@
-{
-  "swagger" : "2.0",
-  "info" : {
-    "version" : "v01",
-    "title" : "CRISTIAN_HOSHIKAW_GENERATE_PDF"
-  },
-  "host" : "oic-digidev-ladsedigdev.integration.ocp.oraclecloud.com:443",
-  "basePath" : "/ic/api/integration/v1/flows/rest/CRISTIAN_HOSHIKAW_GENERATE_PDF/1.0",
-  "schemes" : [ "https" ],
-  "paths" : {
-    "/callPDF" : {
-      "get" : {
-        "produces" : [ "application/pdf" ],
-        "parameters" : [ {
-          "name" : "url",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "A sample description of the Response",
-            "schema" : {
-              "$ref" : "#/definitions/streamReference"
-            }
-          },
-          "500" : {
-            "description" : "Faults",
-            "schema" : {
-              "$ref" : "#/definitions/APIInvocationError"
-            }
-          }
-        },
-        "security" : [ {
-          "oauth2Authentication" : [ ]
-        } ]
-      }
-    }
-  },
-  "securityDefinitions" : {
-    "oauth2Authentication" : {
-      "type" : "oauth2",
-      "authorizationUrl" : "https://idcs-1456e3ed37c04e009008768dd42bdf9a.identity.oraclecloud.com:443/oauth2/v1/authorize",
-      "tokenUrl" : "https://idcs-1456e3ed37c04e009008768dd42bdf9a.identity.oraclecloud.com:443/oauth2/v1/token",
-      "flow" : "accessCode",
-      "scopes" : {
-        "https://OIC-DIGIDEV-ladsedigdev.integration.ocp.oraclecloud.com:443urn:opc:resource:consumer::all" : "all"
-      }
-    }
-  },
-  "definitions" : {
-    "streamReference" : {
-      "type" : "string"
-    },
-    "APIInvocationError" : {
-      "type" : "object",
-      "required" : [ "detail", "errorCode", "errorDetails", "title", "type" ],
-      "properties" : {
-        "type" : {
-          "type" : "string"
-        },
-        "title" : {
-          "type" : "string"
-        },
-        "detail" : {
-          "type" : "string"
-        },
-        "errorCode" : {
-          "type" : "string"
-        },
-        "errorDetails" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "type" : {
-                "type" : "string"
-              },
-              "instance" : {
-                "type" : "string"
-              },
-              "title" : {
-                "type" : "string"
-              },
-              "errorPath" : {
-                "type" : "string"
-              },
-              "errorCode" : {
-                "type" : "int"
-              }
-            },
-            "required" : [ "errorCode", "errorPath", "instance", "title", "type" ]
-          },
-          "minItems" : 1
-        }
-      }
-    }
-  }
-}
+swagger: '2.0'
+info:
+  version: v01
+  title: CRISTIAN_HOSHIKAW_GENERATE_PDF
+  description: Esta é a descrição da API geradora de PDFs v2
+host: oic-digidev-ladsedigdev.integration.ocp.oraclecloud.com:443
+basePath: "/ic/api/integration/v1/flows/rest/CRISTIAN_HOSHIKAW_GENERATE_PDF/1.0"
+schemes:
+- https
+paths:
+  "/callPDF":
+    get:
+      produces:
+      - application/pdf
+      parameters:
+      - name: url
+        in: query
+        required: false
+        type: string
+      responses:
+        '500':
+          description: Faults
+          schema:
+            "$ref": "#/definitions/APIInvocationError"
+        default:
+          description: A sample description of the Response
+          schema:
+            "$ref": "#/definitions/streamReference"
+      security:
+      - oauth2Authentication: []
+securityDefinitions:
+  oauth2Authentication:
+    type: oauth2
+    authorizationUrl: https://idcs-1456e3ed37c04e009008768dd42bdf9a.identity.oraclecloud.com:443/oauth2/v1/authorize
+    tokenUrl: https://idcs-1456e3ed37c04e009008768dd42bdf9a.identity.oraclecloud.com:443/oauth2/v1/token
+    flow: accessCode
+    scopes:
+      https://OIC-DIGIDEV-ladsedigdev.integration.ocp.oraclecloud.com:443urn:opc:resource:consumer::all: all
+definitions:
+  streamReference:
+    type: string
+  APIInvocationError:
+    type: object
+    required:
+    - detail
+    - errorCode
+    - errorDetails
+    - title
+    - type
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      detail:
+        type: string
+      errorCode:
+        type: string
+      errorDetails:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            instance:
+              type: string
+            title:
+              type: string
+            errorPath:
+              type: string
+            errorCode:
+              type: string
+          required:
+          - errorCode
+          - errorPath
+          - instance
+          - title
+          - type
+        minItems: 1
